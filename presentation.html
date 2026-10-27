@@ -1,0 +1,120 @@
+<html><head><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;max-width:900px;margin:40px auto;line-height:1.6}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 12px}</style></head><body><hr />
+<p>title: "Data Science Salary Analysis &amp; Salary Prediction"
+author: "Malak — Portfolio Data Science"
+date: "2026-10-27"</p>
+<hr />
+<h1>💰 Data Science Salary Analysis &amp; Salary Prediction</h1>
+<p><strong>Projet portfolio Data Science / Machine Learning</strong></p>
+<p>Malak — 2026</p>
+<hr />
+<h2>📌 Problématique</h2>
+<p><strong>Quels sont les facteurs associés aux salaires des professionnels de la Data Science, et peut-on prédire leur salaire annuel à partir de leurs caractéristiques professionnelles ?</strong></p>
+<hr />
+<h2>📊 Données</h2>
+<ul>
+<li><strong>Source :</strong> Kaggle — Data Science Salaries 2020-2025</li>
+<li><strong>Taille :</strong> 151 445 profils, 11 colonnes</li>
+<li><strong>Période :</strong> 2020–2025 (94 % en 2024–2025)</li>
+<li><strong>Licence :</strong> CC0 1.0 (domaine public)</li>
+<li><strong>0 valeur manquante, 52,5 % de doublons exacts</strong> (enquête multi-sources)</li>
+</ul>
+<hr />
+<h2>🔬 Méthodologie</h2>
+<ol>
+<li><strong>Analyse exploratoire</strong> — NumPy, Pandas, Matplotlib, Seaborn</li>
+<li><strong>Feature engineering</strong> — <code>job_category</code> (422 → 10 métiers), continents (104 → 7)</li>
+<li><strong>Modélisation</strong> — 4 modèles comparés, split stratifié groupé</li>
+<li><strong>Mise en production</strong> — package Python + application Streamlit</li>
+</ol>
+<hr />
+<h2>🎯 Résultats</h2>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>MAE test</th>
+<th>RMSE test</th>
+<th>R² test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline (médiane)</td>
+<td>54 207 USD</td>
+<td>73 873 USD</td>
+<td>−0,037</td>
+</tr>
+<tr>
+<td>Régression Linéaire</td>
+<td>48 325 USD</td>
+<td>65 065 USD</td>
+<td>0,196</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>47 796 USD</td>
+<td>65 917 USD</td>
+<td>0,174</td>
+</tr>
+<tr>
+<td><strong>Gradient Boosting</strong> ⭐</td>
+<td><strong>47 964 USD</strong></td>
+<td><strong>64 788 USD</strong></td>
+<td><strong>0,203</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gradient Boosting retenu</strong> — meilleur R² test, meilleure RMSE.</p>
+<hr />
+<h2>🔑 Facteurs les plus discriminants</h2>
+<ol>
+<li><strong><code>job_category</code></strong> — 46 % de l'importance</li>
+<li><strong><code>experience_level</code></strong> — 27 %</li>
+<li><strong><code>residence_continent</code></strong> — 24 %</li>
+</ol>
+<p><strong>Le métier, l'expérience et la localisation</strong> expliquent l'essentiel des salaires.</p>
+<hr />
+<h2>📈 Limites</h2>
+<ul>
+<li><strong>R² = 0,20</strong> — le modèle n'explique que 20 % de la variance</li>
+<li><strong>Biais géographique</strong> — 93,7 % des données nord-américaines</li>
+<li><strong>Extrêmes</strong> — salaires &gt; 500k USD sous-estimés</li>
+<li><strong>Sous-groupes rares</strong> — Amérique du Sud, Afrique, Researcher</li>
+<li><strong>Pas de causalité</strong> — associations, pas de relations causales</li>
+</ul>
+<hr />
+<h2>💻 Application Streamlit</h2>
+<p><strong>Formulaire interactif</strong> — 8 champs, prédiction en USD.</p>
+<p><strong>Cas limites gérés :</strong>
+- modèle absent → message clair
+- catégorie inconnue → <code>handle_unknown="ignore"</code>
+- prédiction hors plage → avertissement visuel</p>
+<p><strong>Lancement :</strong> <code>streamlit run app.py</code></p>
+<hr />
+<h2>🛠️ Technologies</h2>
+<ul>
+<li><strong>Python 3.12</strong> — langage</li>
+<li><strong>NumPy / Pandas</strong> — calcul et manipulation</li>
+<li><strong>Scikit-Learn</strong> — modélisation</li>
+<li><strong>Matplotlib / Seaborn</strong> — visualisation</li>
+<li><strong>Streamlit</strong> — application web</li>
+<li><strong>pytest</strong> — 40 tests automatisés</li>
+<li><strong>Git / GitHub</strong> — versioning</li>
+</ul>
+<hr />
+<h2>🎓 Ce que ce projet démontre</h2>
+<ul>
+<li><strong>Pipeline complet</strong> — de l'exploration à la production</li>
+<li><strong>Rigueur méthodologique</strong> — split groupé, anti-fuite, baseline</li>
+<li><strong>Feature engineering</strong> — réduction de cardinalité, regroupement métier</li>
+<li><strong>Bonnes pratiques</strong> — package Python, tests, documentation</li>
+<li><strong>Transparence</strong> — limites documentées, pas de sur-promesse</li>
+</ul>
+<hr />
+<h2>🔗 Liens</h2>
+<ul>
+<li><strong>GitHub :</strong> https://github.com/Malaak50/data-science-salary-analysis</li>
+<li><strong>Application :</strong> <code>streamlit run app.py</code></li>
+<li><strong>Documentation :</strong> <code>README.md</code>, <code>docs/</code>, <code>reports/</code></li>
+</ul>
+<p><strong>Merci !</strong></p></body></html>
