@@ -1,0 +1,49 @@
+{
+  "nom_modele": "Gradient Boosting (défaut, non optimisé)",
+  "version": "1.0.0",
+  "date_entrainement": "2026-10-27T20:04:57",
+  "random_state": 42,
+  "hyperparametres": {
+    "n_estimators": 100,
+    "learning_rate": 0.1,
+    "max_depth": 3
+  },
+  "metriques": {
+    "MAE_train_usd": 47593.49,
+    "MAE_test_usd": 47964.25,
+    "RMSE_train_usd": 64844.95,
+    "RMSE_test_usd": 64788.12,
+    "R2_train": 0.2431,
+    "R2_test": 0.2025
+  },
+  "donnees": {
+    "fichier_source": "data/processed/salaries_clean.csv",
+    "n_train": 121452,
+    "n_test": 29993,
+    "split": "StratifiedGroupKFold (n_splits=5, test_size=0.20)",
+    "features_entree": [
+      "work_year",
+      "experience_level",
+      "employment_type",
+      "remote_ratio",
+      "company_size",
+      "residence_continent",
+      "company_continent",
+      "job_category"
+    ]
+  },
+  "environnement": {
+    "python": "3.12.10",
+    "scikit_learn": "1.9.1",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4"
+  },
+  "limites": [
+    "R² test de 0.20 : le modèle n'explique que 20% de la variance.",
+    "Biais identifiés : sur-estimation des salaires bas, sous-estimation des extrêmes.",
+    "Sous-groupes rares mal prédits (South America, Researcher, juniors).",
+    "Modèle non optimisé : le GridSearchCV n'a pas apporté de gain.",
+    "Données 93,7% nord-américaines : généralisation mondiale limitée."
+  ],
+  "notes": "Ce modèle est destiné à des prédictions indicatives sur des profils comparables à ceux du dataset (data science, 2020-2025, majoritairement US). Ne pas utiliser pour des décisions salariales réelles sans validation humaine."
+}
