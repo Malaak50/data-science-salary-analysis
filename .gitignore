@@ -1,0 +1,58 @@
+# === Environnements virtuels ===
+.venv/
+venv/
+env/
+ENV/
+
+# === VS Code local history ===
+.history/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# === Jupyter Notebook ===
+.ipynb_checkpoints/
+
+# === Tests ===
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# === Données brutes et traitées ===
+# Décision à réévaluer à l'étape 63 selon la licence du dataset.
+# Les fichiers .gitkeep sont conservés pour maintenir l'arborescence.
+data/raw/*.csv
+data/processed/*.csv
+data/raw/*.xlsx
+data/processed/*.xlsx
+
+# === Modèles entraînés ===
+# Décision à réévaluer à l'étape 44 (taille et pertinence du versioning).
+models/*.joblib
+models/*.pkl
+models/*.h5
+# === Index de split (régénérables à l'étape 33) ===
+data/processed/*.npy
+# === Streamlit secrets ===
+.streamlit/secrets.toml
+
+# === Variables d'environnement ===
+.env
+.env.*
+
+# === Système ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Divers ===
+*.log
